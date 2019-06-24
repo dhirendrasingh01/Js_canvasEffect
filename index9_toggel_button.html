@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <style>
+
+          body { }
+
+
+          .hed{
+              text-decoration:  ;
+              font-weight:  bolder;
+              font-size: 20px;
+              font-style:  oblique ;
+              color: grey;
+          }
+          .btn{
+              margin: 10px 0 0 120px;
+
+          }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script src="index.pack.js"></script>
+        <script>
+          import React from "react";
+          import ReactDOM from "react-dom";
+
+          class Toggel extends React.Component {
+            constructor (props){
+              super()
+              this.state={
+                isToggelOn: true
+                    };
+                this.handleClick= this.handleClick.bind(this);
+            }
+            handleClick() {
+              this.setState(prevState=>
+              ({isToggelOn: !prevState.isToggelOn })
+              );
+              alert('Switch on : Switch off');
+
+              }
+
+            render (){
+              return(<div>
+              <div className="btn">
+              <button onClick={this.handleClick}>
+              {this.state.isToggelOn? 'On' : 'Off'}
+              </button>
+              </div>
+              <div>
+              <p className="hed">This is the <u>Toggel</u> On/Off.</p>
+              </div>
+              </div>
+              );
+            }
+
+          }
+
+          ReactDOM.render(<Toggel /> ,document.getElementById("root"));
+
+        </script>
+    </body>
+</html>
